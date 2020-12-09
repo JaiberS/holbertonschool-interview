@@ -2,15 +2,16 @@
 
 
 def canUnlockAll(boxes):
-    if not isinstance(boxes, list):
+    if not isinstance(boxes, list) or len(boxes) == 0:
         return False
-    if len(boxes) == 0 or len(boxes) == 1:
+    for box in boxes:
+        if not isinstance(box, list):
+            return False
+    if len(boxes) == 1:
         return True
     keys = [0]
     for j in keys:
         if len(boxes) > j >= 0:
-            if not isinstance(boxes[j], list):
-                return False
             for i in boxes[j]:
                 if i not in keys:
                     keys.append(i)
