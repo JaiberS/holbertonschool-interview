@@ -2,6 +2,10 @@
 
 
 def canUnlockAll(boxes):
+    if not isinstance(boxes, list):
+        return False
+    if len(boxes) == 0 or len(boxes) == 1:
+        return True
     keys = [0]
     for j in keys:
         for i in boxes[j]:
