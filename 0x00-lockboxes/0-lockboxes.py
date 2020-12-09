@@ -9,6 +9,8 @@ def canUnlockAll(boxes):
     keys = [0]
     for j in keys:
         if len(boxes) > j >= 0:
+            if not isinstance(boxes[j], list):
+                return False
             for i in boxes[j]:
                 if i not in keys:
                     keys.append(i)
