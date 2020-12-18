@@ -33,21 +33,16 @@ listint_t *insert_node(listint_t **head, int n)
     ant = NULL;
 	for (;head2 != NULL && head2->n < n; ant = head2, head2 = head2->next, i++)
     ;
-	if (head2 != NULL)
+	new->n = n;
+	if (ant != NULL)
 	{
-		new->n = n;
-		if (ant != NULL)
-		{
-			ant->next = new;
-			new->next = head2;
-		}
-		else
-		{
-			new->next = *head;
-			*head = new;
-		}
-		return (new);
+		ant->next = new;
+		new->next = head2;
 	}
-	free(new);
-	return (NULL);
+	else
+	{
+		new->next = *head;
+		*head = new;
+	}
+	return (new);
 }
