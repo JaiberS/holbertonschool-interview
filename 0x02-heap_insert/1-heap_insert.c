@@ -68,6 +68,11 @@ heap_t *heap_insert_with_levels(heap_t **root, int value, int level, int max_lev
 		while(head->parent != NULL) {
 			head = head->parent;
 		}
+		if (value > head->n) {
+			new->n = value;
+			value = head->n;
+			head->n = new->n;
+		}
 		new = heap_insert_with_levels(&head->right, value, level + 1, max_level);
 		return (new);
 	}
