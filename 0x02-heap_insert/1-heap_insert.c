@@ -11,7 +11,7 @@
 heap_t *heap_insert(heap_t **root, int value)
 {
     heap_t *new, *head;
-	int max_level = 0;
+ 	int max_level = 0;
 
 	new = malloc(sizeof(heap_t));
 	new->right = NULL;
@@ -69,14 +69,17 @@ heap_t *heap_insert_with_levels(heap_t **root, int value, int level, int max_lev
 			head = head->parent;
 		}
 		new = heap_insert_with_levels(&head->right, value, level + 1, max_level);
+		return (new);
 	}
 	if (value > head->n) {
-		new->n = head->n;
-		head->n = value;
 		if (head->left == NULL) {
+			new->n = head->n;
+			head->n = value;
 			head->left = new;
 			new->parent = head;
 		} else if (head->right == NULL) {
+			new->n = head->n;
+			head->n = value;
 			head->right = new;
 			new->parent = head;
 		} else {
@@ -84,11 +87,12 @@ heap_t *heap_insert_with_levels(heap_t **root, int value, int level, int max_lev
 		}
 		return (head);
 	} else {
-		new->n = value;
 		if (head->left == NULL) {
+			new->n = value;
 			head->left = new;
 			new->parent = head;
 		} else if (head->right == NULL) {
+			new->n = value;
 			head->right = new;
 			new->parent = head;
 		} else {
