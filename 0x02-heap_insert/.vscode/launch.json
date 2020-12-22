@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++.exe - Build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\1-heap_insert.exe",
+            "args": [
+				"-Wall",
+				"-Wextra",
+				"-Werror",
+				"-pedantic",
+				"-g",
+				"C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\binary_tree_print.c",
+				"C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\1-main.c",
+				"C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\1-heap_insert.c",
+				"C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\0-binary_tree_node.c",
+				"-o",
+				"C:\\Users\\gs43vr\\Documents\\Holberton\\Web Specialization\\holbertonschool-interview\\0x02-heap_insert\\1-heap_insert.exe"
+			],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe build active file"
+        }
+    ]
+}
