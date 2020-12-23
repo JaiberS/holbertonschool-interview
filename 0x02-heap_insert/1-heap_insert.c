@@ -68,43 +68,33 @@ heap_t *heap_insert_with_levels(heap_t **root, int value, int level, int max_lev
 		while(head->parent != NULL) {
 			head = head->parent;
 		}
-		if (value > head->n) {
-			new->n = value;
-			value = head->n;
-			head->n = new->n;
-		}
 		new = heap_insert_with_levels(&head->right, value, level + 1, max_level);
 		return (new);
 	}
-	if (value > head->n) {
-		if (head->left == NULL) {
-			new->n = head->n;
-			head->n = value;
-			head->left = new;
-			new->parent = head;
-		} else if (head->right == NULL) {
-			new->n = head->n;
-			head->n = value;
-			head->right = new;
-			new->parent = head;
-		} else {
-			new = heap_insert_with_levels(&head->left, value, level + 1, max_level);
+	if (head->left == NULL) {
+		new->n = value;
+		head->left = new;
+		new->parent = head;
+		while (head != NULL && new->n > head->n) {
+			value = head->n;
+			head->n = new->n;
+			new->n = value;
+			new = head;
+			head = head->parent;
 		}
-		return (head);
+	} else if (head->right == NULL) {
+		new->n = value;
+		head->right = new;
+		new->parent = head;
+		while (head != NULL && new->n > head->n) {
+			value = head->n;
+			head->n = new->n;
+			new->n = value;
+			new = head;
+			head = head->parent;
+		}
 	} else {
-		if (head->left == NULL) {
-			new->n = value;
-			head->left = new;
-			new->parent = head;
-		} else if (head->right == NULL) {
-			new->n = value;
-			head->right = new;
-			new->parent = head;
-		} else {
-			new = heap_insert_with_levels(&head->left, value, level + 1, max_level);
-		}
-		return (new);
+		new = heap_insert_with_levels(&head->left, value, level + 1, max_level);
 	}
-
-	return (head);
+	return (new);
 }
